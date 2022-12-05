@@ -7,16 +7,12 @@ public class Main {
         if (length%2 == 0) halfLength= length/2; // checking the parity condition and determining position of middle chars
         else halfLength= (length+1)/2; //else statement and determining position of middle chars for odd numbers of letters input
 
-        char forward[] = new char[halfLength]; //definition of arrays which holds chars
-        char backward[] = new char[halfLength];
-
         for (int i = 0; i < halfLength; i++) //definition of for loop which is needed for typing in chars to arrays
         {
-            forward[i]=word.charAt(i); //populating arrays with chars of selected positions
-            backward[i]=word.charAt((length-1)-i);
-        }
+            if(word.charAt(i) != word.charAt((length-1)-i)) return false; //comparing opposing chars to determinate if it is a palindrome and if is not return false
 
-        return Arrays.equals(forward,backward); //comparison of two arrays to check if they are equal
+        }
+        return true; //comparison of two arrays to check if they are equal
     }
 
     public static void main(String args[])
